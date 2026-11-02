@@ -3,9 +3,7 @@ import { io } from "socket.io-client";
 import { createRoot } from 'react-dom/client';
 import { Users, Plus, DoorOpen, Sparkles, Gamepad2, ShieldCheck, X, Copy, Check, ArrowRight, Menu, Crown, Clock3 } from 'lucide-react';
 import './styles.css';
-
-const socket = io(`http://${window.location.hostname}:3001`);
-
+const socket = io("https://playcircle-server.onrender.com");
 const games = [
   { id: 'imposter', name: 'Imposter', category: 'Guess & bluff', players: '4–10 players', time: '10–15 min', emoji: '🕵️', color: 'lavender', description: 'One secret imposter. Can your group figure out who it is?' },
   { id: 'quiz', name: 'Family Quiz', category: 'Trivia', players: '2–20 players', time: '5–10 min', emoji: '🧠', color: 'peach', description: 'Put your knowledge to the test with fun questions.' },
@@ -319,8 +317,7 @@ function App() {
       <section className="bottom-cta wrap"><div><div className="eyebrow">YOUR NEXT GAME NIGHT STARTS HERE</div><h2>More laughs. Less scrolling.</h2><p>Pick a game and bring everyone into the circle.</p></div><button className="btn btn-primary" onClick={() => openCreate()}><Gamepad2 size={18}/> Start playing</button></section>
     </main>
 
-    <footer className="footer"><div className="wrap footer-inner"><a className="brand" href="#home"><span className="brand-mark"><Gamepad2 size={19}/></span><span>play<span className="brand-accent">circle</span></span></a><span>Made for moments together. © 2026 PlayCircle</span><a href="#how">How to play</a></div></footer>
-
+<span>Made by Unknown · Contact: 045babayaga@gmail.com</span>
     {modal && <div className="modal-backdrop" onMouseDown={(e) => { if (e.target === e.currentTarget && modal !== 'game') setModal(null); }}>
       <div className="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" style={modal === 'game' ? { maxHeight: '90vh', overflowY: 'auto' } : undefined}>
         {modal !== 'game' && <button className="modal-close icon-button" onClick={() => setModal(null)} aria-label="Close"><X/></button>}
